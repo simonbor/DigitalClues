@@ -51,7 +51,7 @@ for each 1Gb available memory we could create ~ 1Gb / (500 + 500 + 500K) = ~2K p
         * Queue Consumer receive first message and create a new document in Mongo (id, url, priority, timestamp, http status, response)
         > second thread, third thread, etc.
 
-## 4. Scale the design (BONUS)
+## 4. Scale the design
 
 ![Imgur](https://raw.githubusercontent.com/simonbor/DigitalClues/main/scaled-design.png)
 
