@@ -31,7 +31,7 @@ for each 1Gb available memory we could create ~ 1Gb / (500 + 500 + 500K) = ~2K p
 
 ## 2. High level design
 
-![Imgur](https://github.com/simonbor/DigitalClues/hight-level-design.png)
+![Imgur](https://raw.githubusercontent.com/simonbor/DigitalClues/main/hight-level-design.png)
 
 ## 3. Design core components
 
@@ -53,5 +53,5 @@ for each 1Gb available memory we could create ~ 1Gb / (500 + 500 + 500K) = ~2K p
 
 ## 4. Scale the design (BONUS)
 
-![Imgur](https://github.com/simonbor/DigitalClues/scale-level-design.png)
+![Imgur](https://raw.githubusercontent.com/simonbor/DigitalClues/main/scaled-design.png)
 
