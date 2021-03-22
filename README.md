@@ -18,16 +18,16 @@
 * MongoDb hits up to 30K requests per second
 * each request url length (rest api url) can be up to 500 bytes
 * response volume is JSON type and can be up to 500 bytes
-* "n" number (tasks in parallel) can be between 1 and up to server memory limit - 
-for each 1Gb available memory we could create ~ 1Gb / (500 + 500 + 500K) = ~2K parallel threads but total number of threads can not be greater then 32K parallel threads (.NET limit)
+* "n" number (tasks in parallel) is should be between 1 and up to server memory limit - 
+for each 1Gb available memory we could create ~ 1Gb / (500 + 500 + 500K) = ~2K parallel threads but total number of threads can not be greater then 32K parallel threads because of .NET limit
 
 ### Calculate usage
 
 * Volume size data block per one task/thread
     * 500B max per rest api url
     * 500B max per JSON data response
-    * total = ~1KB
 * Stack size of a thread running on an x64 server is 512K
+* total = 513K =~ 5KB
 
 ## 2. High level design
 
@@ -39,7 +39,7 @@ for each 1Gb available memory we could create ~ 1Gb / (500 + 500 + 500K) = ~2K p
 * User update Request Generation Service configuration
     * User update 5 publicly available REST API urls
 * User update Request Perform Service configuration
-    * User update "n" number configuration (tasks in parallel)
+    * User update "n" number configuration when: 1 < n > 2,000
 * User start processes
     * User start the Request Perform Service
         * first thread created
@@ -54,4 +54,10 @@ for each 1Gb available memory we could create ~ 1Gb / (500 + 500 + 500K) = ~2K p
 ## 4. Scale the design (BONUS)
 
 ![Imgur](https://raw.githubusercontent.com/simonbor/DigitalClues/main/scaled-design.png)
+
+Supposing that the n is equal to 30,000 => 
+~90,000 new messages in queue per second
+~5,400,000 new messages in queue per minute
+~324,000,000 new messages in queue per hour
+~7,776,000,000 new messages in queue per day
 
