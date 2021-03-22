@@ -55,9 +55,9 @@ for each 1Gb available memory we could create ~ 1Gb / (500 + 500 + 500K) = ~2K p
 
 ![Imgur](https://raw.githubusercontent.com/simonbor/DigitalClues/main/scaled-design.png)
 
-Supposing that the n is equal to 30,000 => 
-~90,000 new messages in queue per second
-~5,400,000 new messages in queue per minute
-~324,000,000 new messages in queue per hour
-~7,776,000,000 new messages in queue per day
+Supposing that the n is equal to 30,000 -
+* ~90,000 new messages in queue per second
+* ~5,400,000 new messages in queue per minute
+* ~324,000,000 new messages in queue per hour
+* ~7,776,000,000 new messages in queue per day
 
